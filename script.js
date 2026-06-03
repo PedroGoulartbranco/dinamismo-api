@@ -1,6 +1,8 @@
 let lista_users = []
 let lista_post = []
 
+let id_escolhido_editar_post = 0
+
 let div_users = document.getElementById("mostrar_users")
 let div_post = document.getElementById("mostrar_post")
 const modal_post = document.getElementById("janela-editar-post");
@@ -68,15 +70,35 @@ function deletarUsers(id) {
 }
 
 function editarPost(id) {
-    modal_post.style.display = "block"; 
+    const modal = document.getElementById("janela-editar-post");
+    const spanId = document.getElementById("modal-id-post");
     
-    console.log("Editando o post:", idDoPost);
+    modal.style.display = "block";
+    
+    spanId.innerText = id;
 }
 
 function fechar_janela() {
     modal_post.style.display = "none"; 
 }
 
-function salvar_post(id, titulo, descricao) {
+function salvar_post() {
+    const spanId = document.getElementById("modal-id-post");
+    let titulo = document.getElementById("input-titulo");
+    let descricao = document.getElementById("input-descricao");
+
+    titulo = titulo.value
+    descricao = descricao.value
+
+    let post_atual = lista_post.find(post => post.id === parseInt(spanId.innerText));
     
+    if (titulo != "") {
+        console.log(`${titulo}`)
+        post_atual.title = titulo
+    }
+    if (descricao != "") {
+        post_atual.body = descricao
+    }
+    mostrarPost()
+    fechar_janela()
 }
