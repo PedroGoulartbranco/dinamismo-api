@@ -20,15 +20,28 @@
     </div>
 
     <div id="janela-editar-post" class="modal-oculto">
-    <div class="conteudo-modal">
-        <h3>Editar Post</h3>
-        <p>Id: <span id="modal-id-post"></span></p>
-        <input type="text" id="input-titulo" placeholder="Novo Título">
-        <textarea name="" id="input-descricao" placeholder="Descrição"></textarea>
-        <button onclick="salvar_post()">Salvar</button>
+        <div class="conteudo-modal">
+            <h3>Editar Post</h3>
+            <p>Id: <span id="modal-id-post"></span></p>
+            <input type="text" id="input-titulo" placeholder="Novo Título">
+            <textarea name="" id="input-descricao" placeholder="Descrição"></textarea>
+            <button onclick="salvar_post()">Salvar</button>
+            <button onclick="fechar_janela()">Cancelar</button>
+        </div>
+    </div>
+    <div id="janela-editar-users" class="modal-oculto">
+        <div class="conteudo-modal">
+        <h3>Editar Users</h3>
+        <p>Id: <span id="modal-id-users"></span></p>
+        <input type="text" id="input-nome" placeholder="Nome">
+        <input type="text" id="input-nome_usuario" placeholder="Nome Usuario">
+        <input type="text" id="input-email" placeholder="Email">
+        <input type="text" id="input-empresa" placeholder="Nome Empresa">
+        <button onclick="salvar_users()">Salvar</button>
         <button onclick="fechar_janela()">Cancelar</button>
     </div>
-</div>
+    </div>
+
 </body>
 <script src="script.js"></script>
 </html>

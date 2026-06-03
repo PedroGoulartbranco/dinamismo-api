@@ -6,6 +6,7 @@ let id_escolhido_editar_post = 0
 let div_users = document.getElementById("mostrar_users")
 let div_post = document.getElementById("mostrar_post")
 const modal_post = document.getElementById("janela-editar-post");
+const modal_users = document.getElementById("janela-editar-users");
 
 fetch('https://jsonplaceholder.typicode.com/posts?utm_source=chatgpt.com')
 
@@ -54,6 +55,7 @@ function mostrarUsers() {
                 <p><strong>E-mail:</strong> ${usuario.email}</p>
                 <p><strong>Company:</strong> ${usuario.company.name}</p>
                 <button onclick="deletarUsers(${usuario.id})">Deletar</button>
+                <button onclick="editarUsers(${usuario.id})">Editar</button>
             </div>
         `;
     })
@@ -78,8 +80,18 @@ function editarPost(id) {
     spanId.innerText = id;
 }
 
+function editarUsers(id) {
+    const modal = document.getElementById("janela-editar-users");
+    const spanId = document.getElementById("modal-id-users");
+    
+    modal.style.display = "block";
+    
+    spanId.innerText = id;
+}
+
 function fechar_janela() {
     modal_post.style.display = "none"; 
+    modal_users.style.display = "none"
 }
 
 function salvar_post() {
@@ -100,5 +112,35 @@ function salvar_post() {
         post_atual.body = descricao
     }
     mostrarPost()
+    fechar_janela()
+}
+
+function salvar_users() {
+    const spanId = document.getElementById("modal-id-users");
+    let nome = document.getElementById("input-nome");
+    let nome_usuario = document.getElementById("input-nome_usuario");
+    let email = document.getElementById("input-email");
+    let empresa = document.getElementById("input-empresa")
+
+    nome = nome.value
+    email = email.value
+    empresa = empresa.value
+    nome_usuario = nome_usuario.value
+
+    let users_atual = lista_users.find(usuario => usuario.id === parseInt(spanId.innerText));
+    
+    if (nome != "") {
+        users_atual.name = nome
+    }
+    if (email != "") {
+        users_atual.email = email
+    }
+    if (empresa != "") {
+        users_atual.company.name = empresa
+    }
+    if (nome_usuario != "") {
+        users_atual.username = nome_usuario
+    }
+    mostrarUsers()
     fechar_janela()
 }
