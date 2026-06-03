@@ -34,6 +34,7 @@ function mostrarPost() {
         <div class="post-card">
             <h3>${usuario.title} </h3>
             <p>ID: ${usuario.id}<br>ID Usuario: ${usuario.userId}<br>Descrição: ${usuario.body}</p>
+            <button onclick="deletarPost(${usuario.id})">Deletar</button>
         </div>
     `
 });
@@ -51,4 +52,9 @@ function mostrarUsers() {
             </div>
         `;
     })
+}
+
+function deletarPost(id) {
+    lista_post = lista_post.filter(post => post.id !== id);
+    mostrarPost()
 }
