@@ -31,7 +31,7 @@ function mostrarPost() {
     div_post.innerHTML = "";
     lista_post.forEach(usuario => {
     div_post.innerHTML += `
-        <div>
+        <div class="post-card">
             <h3>${usuario.title} </h3>
             <p>ID: ${usuario.id}<br>ID Usuario: ${usuario.userId}<br>Descrição: ${usuario.body}</p>
         </div>
@@ -43,7 +43,7 @@ function mostrarUsers() {
     div_users.innerHTML = ``
     lista_users.forEach(usuario => {
         div_users.innerHTML += `
-            <div class="user-card">
+            <div class="users-card">
                 <h3>${usuario.name}</h3>
                 <p><strong>Username:</strong> ${usuario.username}</p>
                 <p><strong>E-mail:</strong> ${usuario.email}</p>

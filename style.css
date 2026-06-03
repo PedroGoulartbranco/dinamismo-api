@@ -1,0 +1,40 @@
+#mostrar_users {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;       
+}
+
+#mostrar_post {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;       
+}
+
+.users-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 200px;    
+    height: 200px;   
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 250px;           
+    min-height: 200px;      
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; 
+}
+
+.post-card p {
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+}
